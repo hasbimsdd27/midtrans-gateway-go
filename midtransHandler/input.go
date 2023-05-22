@@ -17,6 +17,7 @@ type RequestPayload struct {
 	CustomerDetail    RequestPayloadCustomerDetail    `json:"customer_detail" binding:"required"`
 	WebhookUrl        string                          `json:"webhook_url" binding:"required"`
 	GeneratedID       string
+	TransactionKey    string `json:"transaction_key" binding:"required"`
 }
 
 type WebhookPayload struct {

@@ -42,6 +42,7 @@ func (s *service) CreateTransaction(input RequestPayload) (PaymentRequest, error
 	paymentRequest.WebhookUrl = input.WebhookUrl
 	paymentRequest.RequestPayload = string(json)
 	paymentRequest.Status = "PENDING"
+	paymentRequest.TransactionKey = input.TransactionKey
 
 	newPaymentRequest, err := s.paymentRepository.Save(paymentRequest)
 
@@ -126,6 +127,7 @@ func (s *service) UpdatePayment(input WebhookPayload) (PaymentRequest, error) {
 	callWebhookInputParams.WebhookUrl = paymentRequest.WebhookUrl
 	callWebhookInputParams.TransactionCode = paymentRequest.SourceID
 	callWebhookInputParams.Status = paymentRequest.Status
+	callWebhookInputParams.TransactionKey = paymentRequest.TransactionKey
 
 	webhookResponse, err := libs.CallWebhook(callWebhookInputParams)
 	if err != nil {

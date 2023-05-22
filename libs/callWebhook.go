@@ -16,6 +16,7 @@ type CallWebhookInput struct {
 	WebhookUrl      string `json:"-"`
 	TransactionCode string `json:"transaction_code"`
 	Status          string `json:"status"`
+	TransactionKey  string `json:"transaction_key"`
 }
 
 func CallWebhook(input CallWebhookInput) (CallWebhookResult, error) {

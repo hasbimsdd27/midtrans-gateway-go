@@ -14,6 +14,7 @@ type PaymentRequest struct {
 	ClientWebhookStatusResponse string
 	MidtransWebhookPayload      string
 	RequestPayload              string
+	TransactionKey              string
 	CreatedAt                   time.Time
 	UpdatedAt                   time.Time
 }
